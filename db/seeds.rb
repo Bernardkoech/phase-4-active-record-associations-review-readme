@@ -1,25 +1,28 @@
-author1 = Author.create(name: "Leeroy Jenkins")
-author2 = Author.create(name: Faker::Name.unique.name)
-author3 = Author.create(name: Faker::Name.unique.name)
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
 
-Profile.create(author_id: author1.id, username: "ljenk", email: "ljenk@aol.com", bio: "a very dated reference")
+# Create some passengers
+passenger1 = Passenger.create(name: "John")
+passenger2 = Passenger.create(name: "Jane")
+passenger3 = Passenger.create(name: "Jack")
+passenger4 = Passenger.create(name: "Jill")
+passenger5 = Passenger.create(name: "Jenny")
 
-post1 = Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, author_id: author1.id)
-post2 = Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, author_id: author2.id)
-post3 = Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, author_id: author3.id)
-post4 = Post.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, author_id: author3.id)
+# Create some taxis
+taxi1 = Taxi.create(taxi_number: "ABC123")
+taxi2 = Taxi.create(taxi_number: "DEF456")
+taxi3 = Taxi.create(taxi_number: "GHI789")
+taxi4 = Taxi.create(taxi_number: "JKL012")
+taxi5 = Taxi.create(taxi_number: "MNO345")
 
-tag1 = Tag.create(name: Faker::Lorem.word)
-tag2 = Tag.create(name: Faker::Lorem.word)
-tag3 = Tag.create(name: Faker::Lorem.word)
-
-PostTag.create(post_id: post1.id, tag_id: tag1.id)
-PostTag.create(post_id: post1.id, tag_id: tag2.id)
-
-PostTag.create(post_id: post2.id, tag_id: tag1.id)
-PostTag.create(post_id: post2.id, tag_id: tag3.id)
-
-PostTag.create(post_id: post3.id, tag_id: tag2.id)
-
-PostTag.create(post_id: post4.id, tag_id: tag2.id)
-PostTag.create(post_id: post4.id, tag_id: tag3.id)
+# Create some rides
+Ride.create(taxi: taxi1, passenger: passenger1)
+Ride.create(taxi: taxi2, passenger: passenger2)
+Ride.create(taxi: taxi3, passenger: passenger3)
+Ride.create(taxi: taxi4, passenger: passenger4)
+Ride.create(taxi: taxi5, passenger: passenger5)
